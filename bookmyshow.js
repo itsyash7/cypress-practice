@@ -13,6 +13,9 @@ describe('book my show',function()
     cy.get(':nth-child(3) > .sc-iCwjlJ').click()
     cy.get('.sc-hMrMfs').click() 
 cy.contains('Pune').click()
+    })
+    it('select movie and add invalid details',function()
+    {
 cy.get(':nth-child(3) > .sc-133848s-11 > .sc-dv5ht7-0 > .sc-133848s-3 > :nth-child(1) > .sc-7o7nez-0').click()
 cy.get('.fefjxW > .sc-8f9mtj-0 > span').click()
 cy.get('.sc-jKJlTe').should('have.text','Get Started')
@@ -25,7 +28,7 @@ cy.get('[data-slick-index="3"]').click()
 cy.get(':nth-child(1) > .showtime-pill').click()
 cy.get('#btnPopupAccept').click()
 cy.get('#pop_1').click({force:true})
-cy.xpath("//tbody/tr[24]/td[2]/div[6]/a[1]").click()
+cy.xpath("//tbody/tr[13]/td[2]/div[5]/a[1]").click()
 cy.get('#btnSTotal_reserve').click()
 cy.get('#prePay').click()
 cy.get('#seatErr').should('have.text',"Please select ticket type")
@@ -35,9 +38,6 @@ cy.get('#txtEmail').type('idjidjidj')
 cy.get('#txtMobile').type('545132132')
 cy.get('#dContinueContactSec > .btn').click()
 cy.get('#errDiv_Email').should('have.text',"Please enter a valid email address.")
-
-
-
     })
     
 })
