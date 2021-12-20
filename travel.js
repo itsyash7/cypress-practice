@@ -18,7 +18,7 @@ describe('handling web table',function()
          cy.get('.col-md-9 > .panel > .panel-body').should('contain',"Alexey Melnik").should('be.visible')
 
          //checking value presence particularly in the column
-         cy.get(':nth-child(7) > :nth-child(5)').should('have.text',"$130.00")
+         cy.get(':nth-child(7) > :nth-child(5)').should('have.text',"$105.00")
 
          //verifying customer Anna-Maria Chebupelly whose id is 14402	
          cy.get(':nth-child(9) > :nth-child(3)').each(($e1,index,$list)=>
@@ -37,11 +37,14 @@ describe('handling web table',function()
          //try to edit the order history and it should not allow it to do
          cy.get(':nth-child(11) > :nth-child(8) > [style="min-width: 120px;"] > .btn-group > a.btn').click()
          cy.get('.btn').click()
-         cy.xpath("//td[contains(text(),'23456789')]").should('contain',"23456789")
+         cy.xpath("//td[contains(text(),'345345345435')]").should('contain',"345345345435")
          cy.get('#input-order-status').select("Failed")
          cy.get('#input-notify').check().should('be.checked')
          cy.get('#input-comment').type("didn't picked the call")
          cy.get('#button-history').click()
          cy.get('.alert').should('contain'," Warning: You do not have permission to access the API!")
+         cy.get('tbody > :nth-child(3) > :nth-child(2) > a').should('have.css', 'color', 'rgb(30, 145, 207)')
+        
+
          })
 })
